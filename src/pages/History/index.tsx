@@ -5,6 +5,7 @@ import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/esm/locale/pt-BR'
 
 export function History() {
+  // pegamos o "cycles" por desestruturação do nosso contexto
   const { cycles } = useContext(CyclesContext)
 
   return (
