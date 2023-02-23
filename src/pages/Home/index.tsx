@@ -16,22 +16,6 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { Countdown } from './components/Countdown'
 import { CyclesContext } from '../../contexts/CyclesContext'
 
-// controlled / uncontrolled
-// controlled = manter em temnpo real a informação do input do usuário atualizada pelo valor do estado -> pode ser um problema em aplicações/sistemas grandes
-// uncontrolled = a gente busca a informação somente quando precisamos dela
-
-/**
- * function register(name: string) {
- *  return {
- *    onChange: () => void;
- *    onBlur: () => void,
- *    onFocurs: () => void
- *
- *   }
- *
- * }
- */
-
 // variável criada para armazenar a validação de formulário
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
@@ -69,16 +53,8 @@ export function Home() {
     reset()
   }
 
-  // convertendo minutos para segundos, cada minuto = 60 segundos
-
   const task = watch('task')
   const isSubmitDisabled = !task
-
-  /**
-   *
-   *  Prop Drilling -> Quando a gente tem MUITAS propriedades APENAS para a comunicação entre componentes
-   *  Context API -> Permite compartilharmos informações entre VÁRIOS componentes ao mesmo tempo
-   */
 
   return (
     <HomeContainer>

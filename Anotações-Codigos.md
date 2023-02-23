@@ -1,55 +1,13 @@
-```ts
-import { createContext, useContext, useState } from "react";
+# Anotações - Ignite Timmer
 
-const CyclesContext = createContext({} as any);
+#### Formulários:
 
-function NewCycleForm() {
-  const { activeCycle, setActiveCyle } = useContext(CyclesContext);
+- **controlled** / **uncontrolled**
 
-  return (
-    <h1>
-      NewCycleForm: {activeCycle}
-      <button
-        onClick={() => {
-          setActiveCyle(2);
-        }}
-      >
-        Alterar o ciclo ativo
-      </button>
-    </h1>
-  );
-}
+- **uncontrolled** = a gente busca a informação somente quando precisamos dela
+- **controlled** = manter em temnpo real a informação do input do usuário atualizada pelo valor do **estado** -> pode ser um problema em aplicações/sistemas grandes
 
-function Coutdown() {
-  const { newActiveCyle, setNewActiveCycle } = useContext(CyclesContext);
+---
 
-  return (
-    <h1>
-      Countdown: {newActiveCyle}
-      <button
-        onClick={() => {
-          setNewActiveCycle(3);
-        }}
-      >
-        Alterar o contador do ciclo
-      </button>
-    </h1>
-  );
-}
-
-export function Home() {
-  const [activeCycle, setActiveCyle] = useState(0);
-  const [newActiveCyle, setNewActiveCycle] = useState(0);
-
-  return (
-    <CyclesContext.Provider
-      value={{ activeCycle, setActiveCyle, newActiveCyle, setNewActiveCycle }}
-    >
-      <div>
-        <NewCycleForm />
-        <Coutdown />
-      </div>
-    </CyclesContext.Provider>
-  );
-}
-```
+- **Prop Drilling**: Quando a gente tem **MUITAS** propriedades **APENAS** para a **comunicação entre componentes**
+- **Context API**: Permite **compartilharmos informações** entre **VÁRIOS** componentes ao **mesmo tempo**

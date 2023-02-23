@@ -13,6 +13,7 @@ export function Countdown() {
     setSecondsPassed,
   } = useContext(CyclesContext)
 
+  // convertendo minutos para segundos, cada minuto = 60 segundos
   const totalSeconds = activeCycles ? activeCycles.minutesAmount * 60 : 0 // se tiver um ciclo ativo, então pegue o número de minutos do ciclo, e multiplique por 60, senão tiver ciclo ativo, retorne 0
 
   const startCountTime = useCallback(() => {
@@ -60,6 +61,7 @@ export function Countdown() {
 
   // convertendo para ser exibido em tela
   // método Math.floor -> arredonda o número pra baixo, 25.9 = 25===
+
   const minutesAmount = Math.floor(currentSeconds / 60)
   const secondsAmount = currentSeconds % 60 // resto de segundos da divisão acima
 
