@@ -71,19 +71,19 @@ export function cyclesReducer(state: CyclesState, action: any) {
       })
     }
 
-    case ActionTypes.RESTART_ACTIVE_CYCLE: {
-      const currentCycleIndex = state.cycles.findIndex((cycle) => {
-        return cycle.id === state.activeCycleId
-      })
+    // case ActionTypes.RESTART_ACTIVE_CYCLE: {
+    //   const currentCycleIndex = state.cycles.findIndex((cycle) => {
+    //     return cycle.id === state.activeCycleId
+    //   })
 
-      if (currentCycleIndex < 0) {
-        return state
-      }
+    //   if (currentCycleIndex < 0) {
+    //     return state
+    //   }
 
-      return produce(state, (draft) => {
-        draft.cycles[currentCycleIndex].startDate = new Date()
-      })
-    }
+    //   return produce(state, (draft) => {
+    //     draft.cycles[currentCycleIndex].startDate = new Date()
+    //   })
+    // }
     default:
       return state
   }
