@@ -1,12 +1,12 @@
-import { useContext } from 'react'
-import { CyclesContext } from '../../contexts/CyclesContext'
-import { HistoryContainer, HistoryList, Status } from './styles'
-import { formatDistanceToNow } from 'date-fns'
-import ptBR from 'date-fns/esm/locale/pt-BR'
+import { useContext } from "react";
+import { CyclesContext } from "../../contexts/CyclesContext";
+import { HistoryContainer, HistoryList, Status } from "./styles";
+import { formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/esm/locale/pt-BR";
 
 export function History() {
   // pegamos o "cycles" por desestruturação do nosso contexto
-  const { cycles } = useContext(CyclesContext)
+  const { cycles } = useContext(CyclesContext);
 
   return (
     <HistoryContainer>
@@ -25,6 +25,7 @@ export function History() {
 
           <tbody>
             {cycles &&
+              cycles.length > 0 &&
               cycles.map((cycle) => {
                 return (
                   <tr key={cycle.id}>
@@ -50,11 +51,11 @@ export function History() {
                       )}
                     </td>
                   </tr>
-                )
+                );
               })}
           </tbody>
         </table>
       </HistoryList>
     </HistoryContainer>
-  )
+  );
 }
